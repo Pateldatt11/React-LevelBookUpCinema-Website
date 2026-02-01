@@ -1,0 +1,149 @@
+.forgot-page {
+  background: var(--bg-end);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+.forgot-hero {
+  position: relative;
+  min-height: 45vh;
+  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5.5vw;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 70%, rgba(255,45,45,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.forgot-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: slideDownFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.forgot-title {
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+}
+
+.forgot-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,45,45,0.12) 0%, transparent 70%);
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulseGlow 12s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.forgot-form-section {
+  padding: 4rem 5.5vw;
+}
+
+.form-container {
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,45,45,0.15);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.error-message {
+  color: #ff4d4d;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.success-message {
+  color: #4caf50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.forgot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.forgot-form input {
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  color: white;
+  transition: var(--transition);
+}
+
+.forgot-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255,45,45,0.2);
+}
+
+.reset-btn {
+  padding: 15px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.reset-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,45,45,0.35);
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+
+@keyframes slideDownFade {
+  from { opacity: 0; transform: translateY(-45px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50%      { transform: scale(1.12); opacity: 0.8; }
+}

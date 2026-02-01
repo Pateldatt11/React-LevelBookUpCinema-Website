@@ -1,0 +1,104 @@
+.profile-page {
+  background: var(--bg-end);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+.profile-hero {
+  position: relative;
+  min-height: 50vh;
+  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5.5vw;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255,45,45,0.08) 0%, transparent 60%);
+}
+
+.profile-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: slideDownFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.profile-title {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+}
+
+.profile-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  color: var(--text-muted);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,45,45,0.12) 0%, transparent 70%);
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulseGlow 12s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.profile-section {
+  padding: 5rem 5.5vw;
+}
+
+.profile-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,45,45,0.15);
+  border-radius: 16px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.profile-card h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.profile-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+}
+
+.profile-detail span {
+  color: var(--text-muted);
+}
+
+.logout-btn-full {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  background: transparent;
+  color: #ff4d4d;
+  border: 2px solid #ff4d4d;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: var(--transition);
+}
+
+.logout-btn-full:hover {
+  background: #ff4d4d;
+  color: white;
+  transform: translateY(-3px);
+}

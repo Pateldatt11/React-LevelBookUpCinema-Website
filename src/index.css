@@ -1,0 +1,29 @@
+/* Global styles for full height & footer at bottom */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1; /* This pushes footer to bottom */
+  width: 100%;
+}
+
+/* Footer spacing (જગ્યા ઓછી કરવા માટે) */
+.footer {
+  margin-top: 2rem; /* ← જગ્યા ઓછી કરી (જો જરૂરી હોય તો 1rem કરો) */
+  padding: 4rem 5vw 2rem; /* ← top padding ઓછું કરો */
+}
