@@ -17,7 +17,7 @@ const Nav = () => {
     <nav className="navbar">
 
       <div className="logo">
-        <span>LevelBookUp</span>Cinema
+        <span>LevelBookxUp</span>Cinema
       </div>
 
 
@@ -28,6 +28,7 @@ const Nav = () => {
             className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             end
             onClick={closeMenu}
+            
           >
             Home
           </NavLink>
