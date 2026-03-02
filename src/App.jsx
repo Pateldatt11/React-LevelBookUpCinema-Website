@@ -12,6 +12,7 @@ import Login from './Pages/Login';
 import Forgetpass from './Pages/Forgetpass';
 import Profile from './Pages/Profile';
 import ContactUs from './Pages/Contactus';
+import ScrollToTop from './Components/ScrollToTop';
 
 
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <AuthProvider>
     <BrowserRouter>
+    <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
