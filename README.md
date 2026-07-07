@@ -1,72 +1,129 @@
-# React + Vite
+# Movies Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite movie booking website with a small Express mock backend for auth, bookings, seat holds, and optional Razorpay payment flow.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Movie browsing, details, seat selection, and booking flow
+- Auth pages for signup, login, forgot password, and profile
+- Mock server for bookings and simple user storage during development
+- Ticket generation with QR code and PDF download
+- Seat reservation sync with localStorage and server refresh
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js 18 or newer
+- npm
 
-## Expanding the ESLint configuration
+## Install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-## Project notes (Local development)
-
-This project includes a small mock Express server used for storing bookings and simple auth during development.
-
-Quick start:
-
-1. Install dependencies (frontend + server):
+Install frontend dependencies from the project root:
 
 ```bash
-# from project root
 npm install
+```
 
-# install server deps
+Install server dependencies:
+
+```bash
 cd server
 npm install
 cd ..
 ```
 
-2. Start the mock server (default port 4000):
+## Run
+
+Start both the mock server and the Vite client:
+
+```bash
+npm run dev
+```
+
+If you want to run only the frontend and the server is already running on port 4000:
+
+```bash
+npm run dev:client
+```
+
+Start only the mock server:
+
+```bash
+npm run start:server
+```
+
+Start the server directly from the server folder:
 
 ```bash
 cd server
 npm start
 ```
 
-3. Start the frontend dev server:
+## Build
+
+Create a production build:
 
 ```bash
-npm run dev
+npm run build
 ```
 
-Environment variables:
+Preview the production build locally:
 
-- `VITE_API_BASE` — set this if the mock server runs on a different origin (e.g. `http://localhost:4000`). The frontend reads `VITE_API_BASE` at build-time to determine the API base URL.
-- `VITE_RAZORPAY_KEY_ID` — (optional) Razorpay public key used by the frontend to open the checkout.
-- `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` — (optional) server-side Razorpay credentials used to create orders. If not provided, the server falls back to a mock gateway.
-- `RAZORPAY_WEBHOOK_SECRET` — (optional) webhook secret used to verify incoming Razorpay webhook events.
+```bash
+npm run preview
+```
 
-Note: This project originally referenced `REACT_APP_API_BASE` in older templates. The Vite convention uses `VITE_` prefixes for variables exposed to the client; server-side secrets should not use `VITE_` and must be set in your runtime environment only.
+Run lint checks:
 
-Features added in this branch:
+```bash
+npm run lint
+```
 
-- Mock Express backend with endpoints: `/api/register`, `/api/login`, `/api/me`, `/api/bookings`, `/api/create-order`, `/api/confirm`.
-- Client-side seat hold & release with robust localStorage persistence and best-effort server sync.
-- Optimized `SeatSelection.jsx` (memoization, reduced polling, accessibility improvements).
-- Ticket page: printable ticket, QR code generation, and client-side PDF download.
+## Server Commands
 
-If you run into dev-server overlay errors about unresolved imports after installing deps, try restarting Vite with `--force`:
+Inside the server folder, you can also run:
+
+```bash
+cd server
+npm run rehash-users
+```
+
+This is used to rehash stored user passwords when needed.
+
+## Environment Variables
+
+Client-side variables must use the `VITE_` prefix.
+
+- `VITE_API_BASE` - API base URL for the frontend, for example `http://localhost:4000`
+- `VITE_RAZORPAY_KEY_ID` - optional Razorpay public key for checkout
+- `VITE_EMAILJS_SERVICE_ID` - EmailJS service id for forgot-password emails
+- `VITE_EMAILJS_TEMPLATE_ID` - EmailJS template id for forgot-password emails
+- `VITE_EMAILJS_PUBLIC_KEY` - EmailJS public key for forgot-password emails
+
+Server-side variables:
+
+- `RAZORPAY_KEY_ID` - optional Razorpay key id for order creation
+- `RAZORPAY_KEY_SECRET` - optional Razorpay secret used to verify payment signatures
+- `RAZORPAY_WEBHOOK_SECRET` - optional webhook secret for Razorpay event verification
+- `PORT` - optional server port, defaults to `4000`
+
+## API Endpoints
+
+The mock server exposes these endpoints:
+
+- `GET /api/health`
+- `GET /api/bookings`
+- `POST /api/register`
+- `POST /api/login`
+- `POST /api/create-order`
+- `POST /api/confirm`
+- `POST /api/webhook`
+
+## Notes
+
+- The root `npm run dev` command automatically starts the mock server if port 4000 is free.
+- If Vite shows unresolved import errors after a fresh install, restart with force:
 
 ```bash
 npm run dev -- --force
 ```
-
-Questions or want me to add server-side WebSocket holds / Razorpay integration? Tell me which next and I will implement it.
 
