@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './Nav.css';
+import { AuthContext } from '../context/AuthContext';
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,10 +16,11 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-
-      <div className="logo">
-        <span>LevelBookxUp</span>Cinema
-      </div>
+      <Link to="/" className="logo-link" onClick={closeMenu}>
+        <div className="logo">
+          <span>LevelBookUp</span>Cinema
+        </div>
+      </Link>
 
 
       <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
@@ -35,7 +37,7 @@ const Nav = () => {
         </li>
         <li>
           <NavLink
-            to="/About"
+            to="/about"
             className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             onClick={closeMenu}
           >
@@ -44,7 +46,7 @@ const Nav = () => {
         </li>
         <li>
           <NavLink
-            to="/Movies"
+            to="/movies"
             className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             onClick={closeMenu}
           >
@@ -53,7 +55,7 @@ const Nav = () => {
         </li>
         <li>
           <NavLink
-            to="/Services"
+            to="/services"
             className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
             onClick={closeMenu}
           >
@@ -71,29 +73,7 @@ const Nav = () => {
         </li>
       </ul>
 
-      <div className="auth-buttons">
-        <NavLink
-          to="/Signup"
-          className={({ isActive }) =>
-            isActive
-              ? "auth-btn signup-btn active"
-              : "auth-btn signup-btn"
-          }
-        >
-          Sign Up
-        </NavLink>
-
-        <NavLink
-          to="/Login"
-          className={({ isActive }) =>
-            isActive
-              ? "auth-btn login-btn active"
-              : "auth-btn login-btn"
-          }
-        >
-          Login
-        </NavLink>
-      </div>
+      <AuthButtons />
 
 
       <button
@@ -113,3 +93,36 @@ const Nav = () => {
 };
 
 export default Nav;
+
+function AuthButtons() {
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  if (user) {
+    return (
+      <div className="auth-buttons">
+        <NavLink to="/profile" className={({ isActive }) => isActive ? 'auth-btn profile-btn active' : 'auth-btn profile-btn'}>
+          {user.profileImage ? (
+            <img src={user.profileImage} alt="me" style={{ width: 26, height: 26, borderRadius: 999, marginRight: 8, verticalAlign: 'middle' }} />
+          ) : null}
+          Profile
+        </NavLink>
+
+        <button
+          type="button"
+          className="auth-btn logout-btn"
+          onClick={() => { logout(); navigate('/'); }}
+        >
+          Logout
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="auth-buttons">
+      <NavLink to="/signup" className={({ isActive }) => isActive ? "auth-btn signup-btn active" : "auth-btn signup-btn"}>Sign Up</NavLink>
+      <NavLink to="/login" className={({ isActive }) => isActive ? "auth-btn login-btn active" : "auth-btn login-btn"}>Login</NavLink>
+    </div>
+  );
+}

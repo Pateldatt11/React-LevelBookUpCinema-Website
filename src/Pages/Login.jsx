@@ -27,19 +27,17 @@ const Login = () => {
       return;
     }
 
-    
-   
-    login({
-      name: 'Patel',
-      username: 'patel123',
-      email: formData.email,
-    });
+    (async () => {
+      const sessionUser = await login(formData);
+      if (!sessionUser) {
+        setError('Invalid email or password!');
+        return;
+      }
 
-    alert('Login Successful! Welcome back!');
-   
-    navigate('/Movies');
-
-    setFormData({ email: '', password: '' });
+      alert('Login Successful! Welcome back!');
+      navigate('/movies');
+      setFormData({ email: '', password: '' });
+    })();
   };
 
   return (

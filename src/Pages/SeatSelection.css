@@ -40,6 +40,20 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+}
+
+.seat-row.premium-row {
+  background: linear-gradient(90deg, rgba(255, 193, 7, 0.07), rgba(255, 255, 255, 0.02));
+  border-color: rgba(255, 193, 7, 0.16);
+}
+
+.seat-row.couple-row {
+  background: linear-gradient(90deg, rgba(229, 9, 20, 0.09), rgba(255, 255, 255, 0.02));
+  border-color: rgba(229, 9, 20, 0.14);
 }
 
 .row-label {
@@ -50,20 +64,41 @@
 }
 
 .seat {
-  width: 40px;
-  height: 40px;
-  background: #555;
-  border-radius: 6px;
+  width: 44px;
+  height: 44px;
+  background: #545454;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: var(--transition);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.48), inset 0 -6px 10px rgba(0,0,0,0.25);
+}
+
+.seat.premium {
+  background: linear-gradient(135deg, #ffd86b 0%, #ffb347 100%);
+  color: #2a1d00;
+}
+
+.seat.couple {
+  background: linear-gradient(135deg, #ff6f91 0%, #ff2d2d 100%);
+  color: white;
+}
+
+.seat.dining {
+  background: linear-gradient(135deg, #7efcff 0%, #6bffd9 100%);
+  color: #08332a;
+  box-shadow: 0 6px 18px rgba(108, 255, 232, 0.12);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
 }
 
 .seat:hover:not(.booked) {
-  background: #777;
-  transform: scale(1.1);
+  background: linear-gradient(180deg, #6a6a6a, #505050);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5), 0 6px 18px rgba(0,0,0,0.36);
 }
 
 .seat.booked {
@@ -72,10 +107,17 @@
   color: #666;
 }
 
+.seat.reserved {
+  background: linear-gradient(135deg, #ffb347 0%, #ff7b00 100%);
+  cursor: not-allowed;
+  color: #1b1200;
+}
+
 .seat.selected {
-  background: var(--primary);
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 20px 50px rgba(217,31,31,0.18);
 }
 
 .legend {
@@ -83,6 +125,7 @@
   justify-content: center;
   gap: 2rem;
   margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .legend div {
@@ -98,8 +141,29 @@
 }
 
 .available { background: #555; }
+.premium { background: linear-gradient(135deg, #ffd86b 0%, #ffb347 100%); }
+.couple { background: linear-gradient(135deg, #ff6f91 0%, #ff2d2d 100%); }
+.dining { background: linear-gradient(135deg, #7efcff 0%, #6bffd9 100%); }
 .selected { background: var(--primary); }
+.reserved { background: linear-gradient(135deg, #ffb347 0%, #ff7b00 100%); }
 .booked { background: #333; }
+
+.seat-live-banner {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 1.5rem;
+}
+
+.seat-live-banner span {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
 
 .summary {
   text-align: center;
@@ -108,14 +172,15 @@
 
 .proceed-btn {
   padding: 14px 40px;
-  font-size: 1.2rem;
-  background: var(--primary);
+  font-size: 1.15rem;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   margin-top: 1rem;
-  transition: all 0.3s;
+  transition: var(--transition);
+  box-shadow: 0 14px 40px rgba(217,31,31,0.14);
 }
 
 .proceed-btn:hover {

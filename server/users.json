@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Patel Datt Rajendrakumar",
+    "username": "Patidar18",
+    "email": "pateldatt1111@gmail.com",
+    "password": "$2a$10$YlntLS8xHq4YZKDP5nnDIe8zCODUlsaq7MwI8iYbwuF48IMRPiNs.",
+    "phone": "7069598725",
+    "address": "149 Amizara Residency Bamroli Vadod Gam surat",
+    "city": "Surat",
+    "state": "Gujarat",
+    "dob": "2005-09-19",
+    "profileImage": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIBAAGAAMBIgACEQEDEQH/xAAwAAADAQEBAQAAAAAAAAAAAAAAAQIDBAUGAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAAC8YDWQAYADBDABiGgaYNMAAABgAAAxDBDQwAAAAYIYAAA0xiABgAMQMAABgKNMAYADAAENAAgYgYgaAaAYIaBABQBGmhDQwAAAAQAAAAAAADAAAQwQwAABDTAAAYIaUAAAGADBDBMAGCGA0wAAAAAABoGJgIGIGIAAAQAAAMABAxAIAABAIAABAJypgAwBiYADEwAYIYIoJKQhgAwAAAAATBADABgIAYAAAAMAYAAAADQMAGmDQrEDEFJMAEAStAAIbQMQMABAxAwEAQxMEAwAAABRMEMAGIYJgAAAANAAACIYqGAMAAQwQ2SNiGCbBDBDBMAAAEMQMTAAABDQAAAAAAAAAAAADAGJUhDBJggBACAQAENHOMEMEUCGxDBAAAMAAAAAGIaAAAYJgAySgQAAAmxDBAwAAAAAAGIGAMQMQMEMAABiBoAAAAaGAAAAAAgYgYIYgbQMAAFAAGAgAAABgAAAAADEwBiGCGAAAADBDYhsSoENklAhghgigksIWgZrREFBJQSMEqQhgkwTAAAAAGAAAAMEMEMENkFBKsIVokoJKDlBomMQwAAAEMENANAAAAAAAAAADAGAAmAADBMAAEMEMEME2CGCGgAAABghgJgAAAAAAADAABA0AAAAAADBDAABpgAACgCAgYgAFbQMABoAAYADAAABgCYAAMAYgbQA",
+    "joinedAt": 1780303943841,
+    "vouchers": [
+      {
+        "id": "1780303943612-65a4d7fcd56ff",
+        "type": "percent",
+        "percent": 15,
+        "cap": 500,
+        "redeemed": false,
+        "issuedAt": 1780303943612
+      }
+    ],
+    "bookings": []
+  },
+  {
+    "name": "Patel Datt Rajendrakumar",
+    "username": "PatelDatt18 ",
+    "email": "pateldatt@gmail.com",
+    "password": "$2a$10$Jb./qs/GGoNHPwHlXokuU.UDoQvNuoOFgSz6oUT.3ZQfZOuORFpke",
+    "phone": "7069598725",
+    "address": "149 Amizara Residency Bamroli Vadod Gam surat",
+    "city": "Surat",
+    "state": "Gujarat",
+    "dob": "2005-09-19",
+    "profileImage": "",
+    "joinedAt": 1780556590599,
+    "vouchers": [
+      {
+        "id": "1780556590396-e78cb5c298adb",
+        "type": "percent",
+        "percent": 15,
+        "cap": 500,
+        "redeemed": false,
+        "issuedAt": 1780556590396
+      }
+    ],
+    "bookings": []
+  },
+  {
+    "name": "Patidar",
+    "username": "Patidar18",
+    "email": "patidar18@gmail.com",
+    "password": "$2a$10$LEJOmDi/Cp34SzHj6IuJOutd4Ar9JD3k25qyTFVa4gMkpwLKgPsua",
+    "phone": "7069598725",
+    "address": "149 Amizara Residency Bamroli Vadod Gam surat",
+    "city": "Surat",
+    "state": "Gujarat",
+    "dob": "2005-09-19",
+    "profileImage": "",
+    "joinedAt": 1783352409163,
+    "vouchers": [
+      {
+        "id": "1783352408906-f1dd010abc1558",
+        "type": "percent",
+        "percent": 15,
+        "cap": 500,
+        "redeemed": false,
+        "issuedAt": 1783352408906
+      }
+    ],
+    "bookings": []
+  }
+]

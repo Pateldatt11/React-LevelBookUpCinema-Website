@@ -54,10 +54,24 @@ const About = () => {
             </p>
 
             <div className="team-placeholder">
-              <div className="member-stub">Founder & CEO</div>
-              <div className="member-stub">Lead Developer</div>
-              <div className="member-stub">Creative Director</div>
+              <div className="member-stub">Founder
+                <br />Product Vision</div>
+              <div className="member-stub">Lead Developer
+                <br />Booking Flow</div>
+              <div className="member-stub">Creative Director
+                <br />UI & Motion</div>
             </div>
+          </div>
+
+          <div className="story-block">
+            <h2>Why This Demo Exists</h2>
+            <p>
+              This site is a personal practice project to explore movie discovery, seat booking, payments, and account flows in one place.
+              It is built to feel like a real cinema app while staying lightweight and easy to extend.
+            </p>
+            <p>
+              If you want to improve SEO, the next step is stronger movie pages, richer copy, and shareable URLs for every film.
+            </p>
           </div>
 
           <div className="cta-final">

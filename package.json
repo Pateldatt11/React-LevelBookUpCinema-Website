@@ -4,12 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/dev.js",
+    "dev:client": "vite",
+    "start:server": "node server/index.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "firebase": "^12.15.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "qrcode": "^1.5.1",
     "razorpay": "^2.9.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

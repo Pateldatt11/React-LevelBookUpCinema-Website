@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Services.css';
 
 const Services = () => {
@@ -78,9 +79,9 @@ const Services = () => {
       <section className="services-cta">
         <h2>Ready for your next movie night?</h2>
         <p>Explore 69+ movies and book your seats now!</p>
-        <a href="/Movies" className="btn-primary cta-btn">
+        <Link to="/movies" className="btn-primary cta-btn">
           Browse Movies
-        </a>
+        </Link>
       </section>
     </div>
   );

@@ -21,9 +21,9 @@ const Footer = () => {
           <h3>Quick Links</h3>
           <ul>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/About">About Us</NavLink></li>
-            <li><NavLink to="/Movies">Movies</NavLink></li>
-            <li><NavLink to="/Services">Services</NavLink></li>
+            <li><NavLink to="/about">About Us</NavLink></li>
+            <li><NavLink to="/movies">Movies</NavLink></li>
+            <li><NavLink to="/services">Services</NavLink></li>
             <li><NavLink to="/contact">Contact Us</NavLink></li>
           </ul>
         </div>
@@ -32,8 +32,8 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Account</h3>
           <ul>
-            <li><NavLink to="/Signup">Sign Up</NavLink></li>
-            <li><NavLink to="/Login">Login</NavLink></li>
+            <li><NavLink to="/signup">Sign Up</NavLink></li>
+            <li><NavLink to="/login">Login</NavLink></li>
             <li><NavLink to="/profile">My Profile</NavLink></li>
           </ul>
         </div>
@@ -56,7 +56,7 @@ const Footer = () => {
 
           <p className="footer-contact">
             support@levelbookup.com<br />
-            +91 98765 43210
+            +91 7069598725
           </p>
         </div>
       </div>

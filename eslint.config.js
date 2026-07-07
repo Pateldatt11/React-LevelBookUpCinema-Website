@@ -26,4 +26,18 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    files: ['server/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: {
+        require: 'readonly',
+        process: 'readonly',
+        __dirname: 'readonly',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
 ])

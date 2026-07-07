@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /login
+Disallow: /signup
+Disallow: /forgetpass
+Disallow: /profile
+Disallow: /seat-selection
+Disallow: /payment
+Disallow: /ticket
+Disallow: /movie-details
+
+Sitemap: https://levelbookupcinema.netlify.app/sitemap.xml

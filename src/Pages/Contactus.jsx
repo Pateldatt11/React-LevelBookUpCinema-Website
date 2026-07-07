@@ -8,6 +8,7 @@ const ContactUs = () => {
     subject: '',
     message: '',
   });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,17 +16,16 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Thank you! Your message has been sent. We will get back to you soon.');
+    const submissions = JSON.parse(localStorage.getItem('levelbookup-contact-submissions') || '[]');
+    submissions.unshift({ ...formData, createdAt: new Date().toISOString() });
+    localStorage.setItem('levelbookup-contact-submissions', JSON.stringify(submissions.slice(0, 20)));
+    alert('Thank you! Your message has been saved for this demo. We will get back to you soon.');
+    setSubmitted(true);
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
     <div className="contact-page">
-   
-      <div style={{ color: 'lime', padding: '1rem', textAlign: 'center' }}>
-        Contact Us Page Loaded Successfully!
-      </div>
-      
 
       
       <section className="contact-hero">
@@ -103,6 +103,7 @@ const ContactUs = () => {
                 Send Message
               </button>
             </form>
+            {submitted ? <p style={{ marginTop: '1rem', color: 'var(--text-muted)' }}>Your demo submission is saved locally in this browser.</p> : null}
           </div>
         </div>
       </section>
@@ -110,6 +111,7 @@ const ContactUs = () => {
       <section className="contact-map-section">
         <div className="map-placeholder">
           <p>📍 Our Office Location – Surat</p>
+          <p>Open daily, 10 AM to 10 PM, for demo support and practice project feedback.</p>
           
         </div>
       </section>

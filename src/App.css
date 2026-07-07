@@ -4,34 +4,409 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background-color: #0f0f0f;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(229, 9, 20, 0.12), transparent 35%),
+    linear-gradient(180deg, #090909 0%, #111111 100%);
   color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
 }
 
 :root {
   --bg: #0a0a0a;
   --dark: #111111;
-  --red: #e50914;     
-  --red-dark: #b20710;
+  --primary: #ff2d2d;
+  --primary-dark: #d91f1f;
   --white: #ffffff;
   --gray: #aaaaaa;
   --light-gray: #dddddd;
+  --panel: rgba(255, 255, 255, 0.04);
+  --text-muted: #cfcfcf;
+  --transition: 0.36s cubic-bezier(0.22, 0.9, 0.3, 1);
 }
 
-a { color: var(--red); text-decoration: none; }
+#root {
+  min-height: 100vh;
+}
+
+a { color: var(--primary); text-decoration: none; }
+
+a,
 button {
-  background: var(--red);
-  color: white;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, color 0.28s ease, background-color 0.28s ease, border-color 0.28s ease, opacity 0.28s ease;
+}
+
+button:hover,
+.btn-primary:hover,
+.btn-outline:hover,
+.btn-book:hover,
+.btn-time:hover,
+.btn-cinema:hover,
+.section-link:hover,
+.news-link:hover,
+.submit-btn:hover,
+.login-btn:hover,
+.signup-btn:hover,
+.reset-btn:hover,
+.proceed-btn:hover,
+.logout-btn-full:hover,
+.cta-btn:hover,
+.buy-btn:hover,
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(229, 9, 20, 0.24);
+}
+
+.page-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.03), transparent 40%);
+  pointer-events: none;
+}
+
+.page-fade-in {
+  animation: pageFadeIn 0.7s ease-out both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(0.92);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  background: transparent;
+  color: var(--white);
   border: none;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: var(--transition);
 }
 button:hover {
-  background: var(--red-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.36);
+}
+
+/* Primary / Outline utility buttons for consistent UI */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), rgba(255,120,120,0.9));
+  color: white;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 700;
+  box-shadow: 0 10px 36px rgba(217,31,31,0.16);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+  .page-shell::before {
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), transparent 45%);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .page-fade-in {
+    animation-duration: 0.45s;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    max-width: 340px;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    background:
+      radial-gradient(circle at top, rgba(229, 9, 20, 0.09), transparent 28%),
+      linear-gradient(180deg, #090909 0%, #111111 100%);
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero,
+  .movies-hero,
+  .about-hero,
+  .contact-hero,
+  .profile-hero,
+  .services-hero,
+  .login-hero,
+  .signup-hero,
+  .forgetpass-hero,
+  .payment-hero,
+  .movie-details-hero {
+    padding-left: 4.5vw;
+    padding-right: 4.5vw;
+  }
+
+  .movies-grid,
+  .mission-vision-grid,
+  .contact-container,
+  .profile-card.profile-grid,
+  .payment-grid,
+  .services-grid,
+  .details-grid,
+  .showtime-buttons,
+  .edit-grid,
+  .footer-container {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .movies-hero,
+  .about-hero,
+  .contact-hero,
+  .profile-hero,
+  .services-hero,
+  .login-hero,
+  .signup-hero,
+  .forgetpass-hero,
+  .payment-hero,
+  .movie-details-hero {
+    min-height: auto;
+    padding-top: 5.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .section,
+  .movies-grid-section,
+  .about-section,
+  .contact-section,
+  .contact-map-section,
+  .profile-section,
+  .payment-section,
+  .services-section,
+  .login-section,
+  .signup-section,
+  .forgetpass-section,
+  .movie-details-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .section-header,
+  .contact-container,
+  .profile-card.profile-grid,
+  .payment-grid,
+  .services-grid,
+  .details-grid,
+  .mission-vision-grid,
+  .edit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .movies-grid,
+  .cinemas-grid,
+  .news-grid,
+  .mission-vision-grid,
+  .payment-grid,
+  .services-grid,
+  .details-grid,
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-card,
+  .card,
+  .info-card,
+  .contact-form-wrapper,
+  .profile-card,
+  .payment-panel,
+  .service-card,
+  .detail-panel,
+  .news-card,
+  .cinema-card,
+  .footer,
+  .movie-card-actions {
+    width: 100%;
+  }
+
+  .movie-poster,
+  .movie-poster img,
+  .mapplaceholder2 iframe {
+    height: auto;
+    min-height: 260px;
+  }
+
+  .movie-card-actions,
+  .movie-action-buttons,
+  .cta-buttons,
+  .hero-cta-group,
+  .showtime-buttons,
+  .footer-social {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .movie-action-buttons .btn-secondary,
+  .movie-action-buttons .buy-btn,
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-outline,
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-outline,
+  .showtime-buttons .btn-time {
+    width: 100%;
+  }
+
+  .footer-social a,
+  .auth-btn,
+  .submit-btn,
+  .logout-btn-full,
+  .btn-cinema,
+  .btn-book {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title,
+  .movies-title,
+  .about-title,
+  .contact-title,
+  .profile-title,
+  .services-title,
+  .login-title,
+  .signup-title,
+  .forgetpass-title,
+  .payment-title,
+  .movie-details-title,
+  .cta-title {
+    letter-spacing: -1px;
+    line-height: 1.05;
+  }
+
+  .hero-subtitle,
+  .movies-subtitle,
+  .about-subtitle,
+  .contact-subtitle,
+  .profile-subtitle,
+  .services-subtitle,
+  .login-subtitle,
+  .signup-subtitle,
+  .forgetpass-subtitle,
+  .payment-subtitle,
+  .movie-details-subtitle,
+  .cta-subtitle {
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .movie-title,
+  .news-title,
+  .cinema-name,
+  .card h3,
+  .info-card h3,
+  .profile-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .movie-info,
+  .news-card,
+  .cinema-card,
+  .card,
+  .info-card,
+  .contact-form-wrapper,
+  .profile-card,
+  .payment-panel,
+  .service-card,
+  .detail-panel {
+    padding: 1rem;
+  }
+
+  .section-title,
+  .story-block h2,
+  .team-teaser h2 {
+    font-size: 1.65rem;
+  }
+
+  .movie-poster,
+  .movie-poster img {
+    min-height: 230px;
+  }
+
+  .movie-desc,
+  .news-excerpt,
+  .story-block p,
+  .about-subtitle,
+  .contact-subtitle,
+  .profile-meta,
+  .footer-tagline {
+    font-size: 0.98rem;
+  }
+
+  .member-stub {
+    width: 100%;
+    height: auto;
+    min-height: 130px;
+    padding: 1.1rem;
+  }
 }

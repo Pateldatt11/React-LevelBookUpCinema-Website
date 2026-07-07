@@ -80,6 +80,36 @@
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 500;
+  line-height: 1.5;
+}
+
+.reset-link-box {
+  margin: -0.5rem 0 1.2rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(76, 175, 80, 0.18);
+  background: rgba(76, 175, 80, 0.08);
+  word-break: break-word;
+}
+
+.reset-link-label {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8edc93;
+  margin-bottom: 0.4rem;
+}
+
+.reset-link-value {
+  color: #b8ffbf;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.reset-link-value:hover {
+  text-decoration: underline;
 }
 
 .forgot-form {
